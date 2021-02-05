@@ -1,0 +1,35 @@
+{
+  "name": "markdown-blog",
+  "version": "1.0.0",
+  "description": "a markdown blog built with node, express and mongo",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/consoledot/markdown-blog-.git"
+  },
+  "keywords": [
+    "markdown",
+    "blog",
+    "node",
+    "api",
+    "express",
+    "mongo"
+  ],
+  "author": "abimbola oladele",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/consoledot/markdown-blog-/issues"
+  },
+  "homepage": "https://github.com/consoledot/markdown-blog-#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.11.15"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0"
+  }
+}
