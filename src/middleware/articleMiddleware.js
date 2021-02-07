@@ -1,20 +1,13 @@
-
+const Article = require("../model/article")
 const middleware = {}
 
-middleware.saveArticleandRedirect = path=>{
-    return async (req,res)=>{
-        let article = req.article
-        article.title= req.body.title
-        article.description = req.body.description
-        article.markdown = req.body.markdown
-        console.log("gag",req.article)
-        try {
-            article = await article.save()
-            res.redirect(`/articles/${article.slug}`)
-        } catch (error) {
-            res.render(`${path}`,{article:article})
-        }
-    }
+middleware.newArticle = async(req,res,next)=>{
+    req.article = new Article()
+    next()
 }
 
+middleware.editArticle = async(req,res,next)=>{
+    req.article = await Article.findById(req.params.id)
+    next()
+}
 module.exports = middleware
