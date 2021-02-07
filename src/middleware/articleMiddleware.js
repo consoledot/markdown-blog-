@@ -1,23 +1,18 @@
-const articleSchema = require("../model/article")
+
 const middleware = {}
 
 middleware.saveArticleandRedirect = path=>{
     return async (req,res)=>{
-        console.log(req.body)
-
-        console.log("gag",req.article)
-        // let article = req.article
-        req.article.title= req.body.title
-        req.article.description = req.body.description
-        req.article.markdown = req.body.markdown
-
+        let article = req.article
+        article.title= req.body.title
+        article.description = req.body.description
+        article.markdown = req.body.markdown
         console.log("gag",req.article)
         try {
-           
-            let article = await req.article.save()
+            article = await article.save()
             res.redirect(`/articles/${article.slug}`)
         } catch (error) {
-            res.render(`${path}`,{article:req.article})
+            res.render(`${path}`,{article:article})
         }
     }
 }
