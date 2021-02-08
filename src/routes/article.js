@@ -17,6 +17,4 @@ routes.get("/edit/:slug", articleController.editArticle)
 routes.delete("/:id", articleController.deleteArticle)
 
 
-
-
 module.exports = routes
